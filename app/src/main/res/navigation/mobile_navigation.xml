@@ -12,14 +12,40 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.tendery.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_paket_tender"
+        android:name="com.example.tendery.ui.paket.PaketFragment"
+        android:label="@string/paket_tender"
+        tools:layout="@layout/fragment_paket" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.tendery.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_hps"
+        android:name="com.example.tendery.ui.hps.HpsFragment"
+        android:label="@string/hps"
+        tools:layout="@layout/fragment_hps" />
+
+    <fragment
+        android:id="@+id/nav_data_tender"
+        android:name="com.example.tendery.ui.data_tender.DataTenderFragment"
+        android:label="fragment_data_tender"
+        tools:layout="@layout/fragment_data_tender" />
+
+    <fragment
+        android:id="@+id/nav_penawaran"
+        android:name="com.example.tendery.ui.penawaran.PenawaranFragment"
+        android:label="fragment_penawaran"
+        tools:layout="@layout/fragment_penawaran" />
+
+    <fragment
+        android:id="@+id/nav_pertanyaan"
+        android:name="com.example.tendery.ui.pertanyaan.PertanyaanFragment"
+        android:label="fragment_pertanyaan"
+        tools:layout="@layout/fragment_pertanyaan" />
+
+    <fragment
+        android:id="@+id/nav_post_test"
+        android:name="com.example.tendery.ui.postTest.PostTestFragment"
+        android:label="fragment_post_test"
+        tools:layout="@layout/fragment_post_test" />
+
+
 </navigation>
