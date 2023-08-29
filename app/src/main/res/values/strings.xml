@@ -23,4 +23,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="about">about</string>
+    <string name="masukan_email">Masukan Email</string>
+    <string name="masukan_password">Masukan password</string>
+    <string name="masuk">Masuk</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="keluar">Keluar</string>
+    <string name="daftar_pengguna">Daftar Pengguna</string>
+    <string name="email_card">email@gmail.com</string>
+    <string name="tambah_user">Tambah User</string>
+    <string name="edit_user">Edit Akun</string>
 </resources>

@@ -26,25 +26,25 @@
     <fragment
         android:id="@+id/nav_data_tender"
         android:name="com.example.tendery.ui.data_tender.DataTenderFragment"
-        android:label="fragment_data_tender"
+        android:label="@string/data_tender"
         tools:layout="@layout/fragment_data_tender" />
 
     <fragment
         android:id="@+id/nav_penawaran"
         android:name="com.example.tendery.ui.penawaran.PenawaranFragment"
-        android:label="fragment_penawaran"
+        android:label="@string/penawaran"
         tools:layout="@layout/fragment_penawaran" />
 
     <fragment
         android:id="@+id/nav_pertanyaan"
         android:name="com.example.tendery.ui.pertanyaan.PertanyaanFragment"
-        android:label="fragment_pertanyaan"
+        android:label="@string/pertanyaan"
         tools:layout="@layout/fragment_pertanyaan" />
 
     <fragment
         android:id="@+id/nav_post_test"
         android:name="com.example.tendery.ui.postTest.PostTestFragment"
-        android:label="fragment_post_test"
+        android:label="@string/post_test"
         tools:layout="@layout/fragment_post_test" />
 
 
