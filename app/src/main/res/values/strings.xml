@@ -32,4 +32,6 @@
     <string name="email_card">email@gmail.com</string>
     <string name="tambah_user">Tambah User</string>
     <string name="edit_user">Edit Akun</string>
+    <string name="kode_paket">kode paket</string>
+    <string name="simpan">simpan</string>
 </resources>
