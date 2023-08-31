@@ -1,21 +1,21 @@
-package com.example.tendery.ui.hps.editHPS
+package com.example.tendery.ui.data_tender.addTender
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.example.tendery.R
-import com.example.tendery.databinding.ActivityDetailTenderBinding
-import com.example.tendery.databinding.ActivityEdithpsBinding
+import com.example.tendery.databinding.ActivityAddTenderBinding
+import com.example.tendery.databinding.ActivityEditAkunBinding
 
-class EdithpsActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityEdithpsBinding
+class AddTenderActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityAddTenderBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
-            title ="Edit User"
+            title ="Tambah Tender"
         }
-        binding = ActivityEdithpsBinding.inflate(layoutInflater)
+        binding = ActivityAddTenderBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 

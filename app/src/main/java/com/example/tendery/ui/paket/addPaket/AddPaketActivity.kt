@@ -18,7 +18,7 @@ class AddPaketActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
-            title = getString(R.string.daftar_pengguna)
+            title = "Tambah Paket Tender"
         }
         binding = ActivityAddPaketBinding.inflate(layoutInflater)
         setContentView(binding.root)
