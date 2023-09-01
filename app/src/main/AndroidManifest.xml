@@ -13,6 +13,21 @@
         android:theme="@style/Theme.Tendery"
         tools:targetApi="31">
         <activity
+            android:name=".ui.riwayat.RiwayatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pertanyaan.editJawaban.EditJawabanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pertanyaan.addPertanyaan.AddJawabanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pertanyaan.addPertanyaan.AddPertanyaanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pertanyaan.detailPertanyaan.DetailPertanyaanActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.penawaran.addPenawaran.AddPenawaranActivity"
             android:exported="false" />
         <activity
