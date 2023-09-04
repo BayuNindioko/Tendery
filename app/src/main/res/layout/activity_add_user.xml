@@ -128,8 +128,9 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
+        app:cornerRadius="26dp"
         android:layout_marginBottom="32dp"
         android:text="Tambah Akun"
         app:layout_constraintBottom_toBottomOf="parent"

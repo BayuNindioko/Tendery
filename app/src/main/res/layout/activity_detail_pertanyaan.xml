@@ -13,10 +13,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:textSize="24sp"
-        android:text="Rincian Penawaran"
+        android:text="Rincian Pertanyaan"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/textViewPertanyaan"
@@ -31,17 +32,28 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewKodeTender" />
 
     <TextView
+        android:id="@+id/textViewPenanya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Penanya: Bayu"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPertanyaan" />
+
+    <TextView
         android:id="@+id/textViewDetailPertanyaan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Apa ini apa itu Apa ini apa ituApa ini apa ituApa ini apa ituApa ini apa itu Apa ini apa ituApa ini apa itu"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPertanyaan" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPenanya" />
 
     <TextView
         android:id="@+id/textViewJawaban"
@@ -49,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Kode Tender"
+        android:text="Jawaban"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,8 +82,8 @@
 
     <Button
         android:id="@+id/editJawaban"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
         android:layout_marginBottom="12dp"
         android:text="Edit Jawaban"
         app:layout_constraintBottom_toTopOf="@+id/button2"
@@ -80,8 +92,8 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
         android:layout_marginBottom="32dp"
         android:text="Jawab"
         app:layout_constraintBottom_toBottomOf="parent"

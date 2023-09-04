@@ -40,11 +40,14 @@
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/kode_tender" />
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/right_arrow"
+            android:text="Dipilih"
+            android:textSize="16sp"
+            android:textColor="@color/green"
+            android:textStyle="bold"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />

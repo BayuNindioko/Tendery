@@ -1,11 +1,14 @@
 package com.example.tendery.ui.paket.detail
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.example.tendery.R
 import com.example.tendery.databinding.ActivityAddPaketBinding
 import com.example.tendery.databinding.ActivityDetailPaketBinding
+import com.example.tendery.ui.data_tender.editDataTender.EditDataTenderActivity
+import com.example.tendery.ui.paket.editPaket.EditPaketActivity
 
 class DetailPaketActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailPaketBinding
@@ -19,6 +22,10 @@ class DetailPaketActivity : AppCompatActivity() {
         binding = ActivityDetailPaketBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.fabEdit.setOnClickListener {
+            val intent = Intent(this, EditPaketActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

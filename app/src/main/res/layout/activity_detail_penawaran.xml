@@ -53,8 +53,8 @@
     <!-- End of added TextViews -->
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
         android:layout_marginBottom="32dp"
         android:text="Pilih Penawaran"
         app:layout_constraintBottom_toBottomOf="parent"

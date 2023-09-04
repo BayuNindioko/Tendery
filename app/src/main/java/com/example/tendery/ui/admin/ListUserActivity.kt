@@ -19,6 +19,7 @@ class ListUserActivity : AppCompatActivity() {
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             title = getString(R.string.daftar_pengguna)
+
         }
         binding = ActivityListUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
