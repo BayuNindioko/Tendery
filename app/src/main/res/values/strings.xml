@@ -28,10 +28,23 @@
     <string name="masuk">Masuk</string>
     <string name="tentang_aplikasi">Tentang Aplikasi</string>
     <string name="keluar">Keluar</string>
-    <string name="daftar_pengguna">Daftar Pengguna</string>
+    <string name="daftar_pengguna">Buat Akun</string>
     <string name="email_card">email@gmail.com</string>
     <string name="tambah_user">Tambah User</string>
     <string name="edit_user">Edit Akun</string>
     <string name="kode_paket">kode paket</string>
     <string name="simpan">simpan</string>
+
+
+    //register
+    <string name="error_enter_email">Masukan email terlebih dahulu!</string>
+    <string name="error_passrword">Masukan password terlebih dahulu</string>
+    <string name="invalid_email">Gunakan format email yang sesuai</string>
+    <string name="error_confirm_password">Password tidak sesuai!</string>
+    <string name="password_leght">Password harus memiliki minimal 8 karakter</string>
+    <string name="daftar">Daftar Akun</string>
+    <string name="sign_up_button">Daftar</string>
+    <string name="have_account">Belum memiliki Akun?</string>
+    <string name="error_select_role">Pilih Role</string>
+    <string name="error_nama">Masukan nama!</string>
 </resources>

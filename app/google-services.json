@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "43731226784",
+    "project_id": "tendery-c4e9c",
+    "storage_bucket": "tendery-c4e9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43731226784:android:382fb31b7f22c09cc1f9c5",
+        "android_client_info": {
+          "package_name": "com.example.tendery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43731226784-6ucpueu599bmd1lvc6vpmqc26hgsol92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtyX9I8RYQdBPOjyG5Nf_8rFJ5bCQ17Ys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43731226784-6ucpueu599bmd1lvc6vpmqc26hgsol92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
