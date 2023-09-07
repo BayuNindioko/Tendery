@@ -1,17 +1,12 @@
 package com.example.tendery.ui.paket.editPaket
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
-import com.example.tendery.R
-import com.example.tendery.databinding.ActivityAddPaketBinding
 import com.example.tendery.databinding.ActivityEditPaketBinding
-import com.example.tendery.databinding.FragmentPaketBinding
-import com.example.tendery.ui.paket.PaketFragment
-import com.example.tendery.ui.paket.detail.DetailPaketActivity
 import com.example.tendery.ui.paket.rv.PaketModel
 import com.google.firebase.database.FirebaseDatabase
 
@@ -22,7 +17,7 @@ class EditPaketActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
-            title = getString(R.string.daftar_pengguna)
+            title = ("Edit Paket Tender")
         }
         binding = ActivityEditPaketBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -69,11 +64,19 @@ class EditPaketActivity : AppCompatActivity() {
         val empInfo = PaketModel(id, nama,kodeRup,klpd,nilaiPagu,tahun,jenisPengadaan,provinsi,kabupatenKota,lokasiLengkap)
         dbRef.setValue(empInfo)
         Toast.makeText(applicationContext, "Data Berhasil Diperbarui!", Toast.LENGTH_LONG).show()
-        val fragment = PaketFragment() // Buat objek fragment
-        val transaction = supportFragmentManager.beginTransaction() // Memulai transaksi fragment
-        transaction.replace(R.id.editpaket, fragment) // Ganti kontainer dengan fragment
-        transaction.addToBackStack(null) // (Opsional) Tambahkan transaksi ke back stack
-        transaction.commit()
+
+        val updatedIntent = Intent()
+        updatedIntent.putExtra("updatedNama", nama)
+        updatedIntent.putExtra("updatedKodeRup", kodeRup)
+        updatedIntent.putExtra("updatedKlpd", klpd)
+        updatedIntent.putExtra("updatedNilaiPagu", nilaiPagu)
+        updatedIntent.putExtra("updatedTahun", tahun)
+        updatedIntent.putExtra("updatedJenisPengadaan", jenisPengadaan)
+        updatedIntent.putExtra("updatedProvinsi", provinsi)
+        updatedIntent.putExtra("updatedKabupatenKota", kabupatenKota)
+        updatedIntent.putExtra("updatedLokasiLengkap", lokasiLengkap)
+
+        setResult(RESULT_OK, updatedIntent)
         finish()
     }
 

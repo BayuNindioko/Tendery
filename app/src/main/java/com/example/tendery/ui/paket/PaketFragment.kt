@@ -28,8 +28,6 @@ class PaketFragment : Fragment() {
     private var _binding: FragmentPaketBinding? = null
     private lateinit var auth: FirebaseAuth
     private lateinit var fStore: FirebaseFirestore
-
-    private lateinit var PaketList: ArrayList<PaketModel>
     private lateinit var dbRef: DatabaseReference
     private val binding get() = _binding!!
 

@@ -24,6 +24,9 @@ class DetailPaketActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailPaketBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var fStore: FirebaseFirestore
+    companion object {
+        const val EDIT_REQUEST_CODE = 1
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.apply {
@@ -101,7 +104,7 @@ class DetailPaketActivity : AppCompatActivity() {
             intent.putExtra("paketProvinsi", provinsi)
             intent.putExtra("paketKabupatenKota", kabupatenKota)
             intent.putExtra("paketLokasiLengkap", lokasiLengkap)
-            startActivity(intent)
+            startActivityForResult(intent, EDIT_REQUEST_CODE)
         }
 
         getDetail(nama,kodeRup,klpd,nilaiPagu,tahun,jenisPengadaan,provinsi,kabupatenKota,lokasiLengkap)
@@ -118,6 +121,33 @@ class DetailPaketActivity : AppCompatActivity() {
         binding.textViewProvinsi.text = getString(R.string.provinsi) + " " + provinsi
         binding.textViewKabupatenKota.text = getString(R.string.kabupaten_kota) + " " + kabupatenKota
         binding.textViewLokasiLengkap.text = getString(R.string.lokasi_lengkap) + " " + lokasiLengkap
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == EDIT_REQUEST_CODE && resultCode == RESULT_OK) {
+
+            val updatedNama = data?.getStringExtra("updatedNama")
+            val updatedKodeRup = data?.getStringExtra("updatedKodeRup")
+            val updatedKlpd = data?.getStringExtra("updatedKlpd")
+            val updatedNilaiPagu = data?.getStringExtra("updatedNilaiPagu")
+            val updatedTahun = data?.getStringExtra("updatedTahun")
+            val updatedJenisPengadaan = data?.getStringExtra("updatedJenisPengadaan")
+            val updatedProvinsi = data?.getStringExtra("updatedProvinsi")
+            val updatedKabupatenKota = data?.getStringExtra("updatedKabupatenKota")
+            val updatedLokasiLengkap = data?.getStringExtra("updatedLokasiLengkap")
+
+            binding.textViewNamaPaket.text = updatedNama
+            binding.textViewKodeRUP.text = getString(R.string.kode_rup) + " " + updatedKodeRup
+            binding.textViewKLPD.text = getString(R.string.k_l_pd) + " " + updatedKlpd
+            binding.textViewNilaiPagu.text = getString(R.string.nilai_pagu) + " " + updatedNilaiPagu
+            binding.textViewTahun.text = getString(R.string.tahun) + " " + updatedTahun
+            binding.textViewJenisPengadaan.text = getString(R.string.jenis) + " " + updatedJenisPengadaan
+            binding.textViewProvinsi.text = getString(R.string.provinsi) + " " + updatedProvinsi
+            binding.textViewKabupatenKota.text = getString(R.string.kabupaten_kota) + " " + updatedKabupatenKota
+            binding.textViewLokasiLengkap.text = getString(R.string.lokasi_lengkap) + " " + updatedLokasiLengkap
+
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
