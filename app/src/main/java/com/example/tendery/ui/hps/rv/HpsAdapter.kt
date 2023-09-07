@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tendery.R
 
 
-
 class HpsAdapter(private val hpsList: ArrayList<HpsModel>) :
     RecyclerView.Adapter<HpsAdapter.ViewHolder>() {
 
