@@ -61,7 +61,6 @@ class AddPaketActivity : AppCompatActivity() {
                     binding.progressBar4.visibility = View.GONE
                 }
         }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
