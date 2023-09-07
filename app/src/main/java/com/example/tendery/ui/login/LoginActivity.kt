@@ -27,11 +27,7 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         fStore = FirebaseFirestore.getInstance()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+
 
         binding.loginButton.setOnClickListener {
             signIn()

@@ -40,6 +40,15 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
+        val loginIntent = Intent(this, LoginActivity::class.java)
+        loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+
+        if (currentUser == null) {
+            startActivity(loginIntent)
+            finish()
+            return
+        }
+
         val userDocRef = fStore.collection("Users").document(currentUser?.uid.toString())
 
         userDocRef.get()

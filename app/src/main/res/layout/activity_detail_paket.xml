@@ -20,9 +20,9 @@
 
     <TextView
         android:id="@+id/textViewKodeRUP"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kode RUP : "
+        android:text="@string/kode_rup"
         app:layout_constraintTop_toBottomOf="@+id/textViewNamaPaket"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
@@ -30,9 +30,9 @@
 
     <TextView
         android:id="@+id/textViewKL_PD"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="K/L/PD"
+        android:text="@string/k_l_pd"
         app:layout_constraintTop_toBottomOf="@+id/textViewKodeRUP"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
@@ -40,9 +40,9 @@
 
     <TextView
         android:id="@+id/textViewNilaiPagu"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nilai Pagu  :"
+        android:text="@string/nilai_pagu"
         app:layout_constraintTop_toBottomOf="@+id/textViewKL_PD"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
@@ -50,9 +50,9 @@
 
     <TextView
         android:id="@+id/textViewTahun"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tahun         :"
+        android:text="@string/tahun"
         app:layout_constraintTop_toBottomOf="@+id/textViewNilaiPagu"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
@@ -60,9 +60,9 @@
 
     <TextView
         android:id="@+id/textViewJenisPengadaan"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jenis           :"
+        android:text="@string/jenis"
         app:layout_constraintTop_toBottomOf="@+id/textViewTahun"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
@@ -70,11 +70,11 @@
 
     <TextView
         android:id="@+id/textViewLokasi"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="34dp"
-        android:text="Lokasi"
+        android:text="@string/lokasi"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,9 +82,9 @@
 
     <TextView
         android:id="@+id/textViewProvinsi"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Provinsi"
+        android:text="@string/provinsi"
         app:layout_constraintTop_toBottomOf="@+id/textViewLokasi"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
@@ -92,9 +92,9 @@
 
     <TextView
         android:id="@+id/textViewKabupatenKota"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kabupaten / Kota"
+        android:text="@string/kabupaten_kota"
         app:layout_constraintTop_toBottomOf="@+id/textViewProvinsi"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
@@ -102,9 +102,9 @@
 
     <TextView
         android:id="@+id/textViewLokasiLengkap"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lokasi Lengkap"
+        android:text="@string/lokasi_lengkap"
         app:layout_constraintTop_toBottomOf="@+id/textViewKabupatenKota"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"

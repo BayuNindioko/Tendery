@@ -47,4 +47,13 @@
     <string name="have_account">Belum memiliki Akun?</string>
     <string name="error_select_role">Pilih Role</string>
     <string name="error_nama">Masukan nama!</string>
+    <string name="kode_rup">Kode RUP \t:</string>
+    <string name="k_l_pd">K/L/PD \t\t\t\t:</string>
+    <string name="nilai_pagu">Nilai Pagu \t:</string>
+    <string name="tahun">Tahun \t\t\t\t\t:</string>
+    <string name="jenis">Jenis \t\t\t\t\t\t:</string>
+    <string name="lokasi">Lokasi</string>
+    <string name="provinsi">Provinsi \t\t\t\t\t\t\t\t\t:</string>
+    <string name="kabupaten_kota">Kabupaten / Kota\t:</string>
+    <string name="lokasi_lengkap">Lokasi Lengkap \t\t:</string>
 </resources>
