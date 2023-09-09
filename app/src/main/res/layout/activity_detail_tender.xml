@@ -7,97 +7,69 @@
     tools:context=".ui.paket.detail.DetailPaketActivity">
 
     <TextView
-        android:id="@+id/textViewRinciantender"
+        android:id="@+id/nama_tender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:text="Nama Tender"
         android:textSize="24sp"
-        android:text="Rincian Tender"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewKodeTender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Kode Tender :"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRinciantender" />
-
-    <TextView
         android:id="@+id/textViewKodeRUP"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Kode RUP : "
+        android:text="@string/kode_tender_data"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewKodeTender" />
+        app:layout_constraintTop_toBottomOf="@+id/nama_tender" />
 
     <!-- Add more TextViews here -->
     <TextView
-        android:id="@+id/textViewJenisBarang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kualifikasi Usaha : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewKodeRUP"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:id="@+id/textViewSatuan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jenis Kualifikasi : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewJenisBarang"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:id="@+id/textViewHargaPajak"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Keterangan Kualifikasi : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewSatuan"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:id="@+id/textViewPajak"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewKualifikasi"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Tanggal Mulai : "
+        android:text="@string/jenis_kualifikasi"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHargaPajak" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewKodeRUP" />
 
-    <TextView
-        android:id="@+id/textViewTotal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tanggal Selesai : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewPajak"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
 
     <TextView
         android:id="@+id/textViewKeterangan"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Download Dokumen Pemilihan : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewTotal"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="@string/keterangan_kualifikasi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKualifikasi" />
+
+    <TextView
+        android:id="@+id/textViewMulai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tanggal_mulai"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKeterangan" />
+
+    <TextView
+        android:id="@+id/textViewSelesai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tanggal_selesai"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMulai" />
+
 
     <!-- End of added TextViews -->
 

@@ -19,26 +19,26 @@
         android:padding="8dp">
 
         <TextView
-            android:id="@+id/kualifikasi"
+            android:id="@+id/nama_tender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="10dp"
-            android:text="Jenis Barang / Jasa"
+            android:text="Nama Tender"
             android:textSize="16sp"
             android:textStyle="bold"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/kode_tender"
+            android:id="@+id/kode_tender_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Kode Tender"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/kualifikasi" />
+            card_view:layout_constraintTop_toBottomOf="@+id/nama_tender" />
 
         <ImageView
             android:layout_width="20dp"

@@ -63,4 +63,11 @@
     <string name="total_label">Total\t\t\t\t\t\t\t\t\t\t\t\t:</string>
     <string name="keterangan_label">Keterangan\t\t\t\t\t\t:</string>
     <string name="nilai_pagu_label">Nilai Pagu\t\t\t\t\t\t\t:</string>
+    <string name="kode_tender">Kode Tender :</string>
+
+    <string name="kode_tender_data">Kode Tender \t\t\t\t\t\t\t\t\t\t:</string>
+    <string name="keterangan_kualifikasi">Keterangan Kualifikasi \t:</string>
+    <string name="jenis_kualifikasi">Jenis Kualifikasi \t\t\t\t\t\t\t:</string>
+    <string name="tanggal_mulai">Tanggal Mulai \t\t\t\t\t\t\t\t\t:</string>
+    <string name="tanggal_selesai">Tanggal Selesai \t\t\t\t\t\t\t:</string>
 </resources>

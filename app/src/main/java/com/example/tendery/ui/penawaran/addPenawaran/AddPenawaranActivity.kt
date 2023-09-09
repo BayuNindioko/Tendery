@@ -34,14 +34,14 @@ class AddPenawaranActivity : AppCompatActivity() {
     private fun submitData() {
         val kode = binding.kodeEditText.text.toString()
         val harga = binding.hargaEditText.text.toString()
-        val dokumen = binding.dokumenEditText.text.toString()
+
         val status = "Tersedia"
-        if (kode.isEmpty()|| harga.isEmpty() || dokumen.isEmpty() ) {
+        if (kode.isEmpty()|| harga.isEmpty() ) {
             Toast.makeText(this, "Semua field harus diisi", Toast.LENGTH_SHORT).show()
         } else {
             binding.progressBar4.visibility = View.VISIBLE
             val PenawaranId = dbRef.push().key!!
-            val penawaran = PenawaranModel(PenawaranId,harga,kode,dokumen,status)
+            val penawaran = PenawaranModel(PenawaranId,harga,kode,status)
 
             dbRef.child(PenawaranId).setValue(penawaran)
                 .addOnCompleteListener {

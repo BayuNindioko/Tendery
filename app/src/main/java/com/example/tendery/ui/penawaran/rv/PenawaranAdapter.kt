@@ -34,9 +34,9 @@ class PenawaranAdapter(private val penawaranList: ArrayList<PenawaranModel>) :
         holder.tvStatus.text = currentPenawaran.status
 
         if (currentPenawaran.status == "Dipilih") {
-            holder.tvStatus.setTextColor(holder.itemView.resources.getColor(R.color.green)) // Change to your desired green color
+            holder.tvStatus.setTextColor(holder.itemView.resources.getColor(R.color.green))
         } else {
-            holder.tvStatus.setTextColor(holder.itemView.resources.getColor(R.color.primary)) // Change to your desired blue color
+            holder.tvStatus.setTextColor(holder.itemView.resources.getColor(R.color.primary))
         }
 
 

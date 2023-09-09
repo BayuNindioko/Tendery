@@ -69,6 +69,7 @@ class Rincian_hpsActivity : AppCompatActivity() {
         val dokumenPersiapan = intent.getStringExtra("dokumenPersiapan")
 
         getDetail(kodeRup,jenisBarangJasa,satuan,harga,pajak,total,keterangan,nilaiPagu,dokumenPersiapan)
+
         binding.fabEdit.setOnClickListener {
             val intent = Intent(this, EdithpsActivity::class.java)
             intent.putExtra("HpsId", id)
@@ -82,7 +83,7 @@ class Rincian_hpsActivity : AppCompatActivity() {
             intent.putExtra("nilaiPagu", nilaiPagu)
             intent.putExtra("dokumenPersiapan", dokumenPersiapan)
 
-            startActivityForResult(intent, DetailPaketActivity.EDIT_REQUEST_CODE)
+            startActivityForResult(intent, EDIT_REQUEST_CODE)
         }
 
         binding.fabDelete.setOnClickListener {

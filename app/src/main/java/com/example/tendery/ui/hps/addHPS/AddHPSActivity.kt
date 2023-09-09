@@ -42,13 +42,12 @@ class AddHPSActivity : AppCompatActivity() {
         val dokumenPersiapan = binding.DokumenEditText.text.toString()
 
         if (kodeRup.isEmpty()|| jenisBarangJasa.isEmpty() || satuan.isEmpty() || harga.isEmpty() || pajak.isEmpty() ||
-            total.isEmpty() || keterangan.isEmpty() || nilaiPagu.isEmpty() ||
-            dokumenPersiapan.isEmpty()) {
+            total.isEmpty() || keterangan.isEmpty() || nilaiPagu.isEmpty()) {
             Toast.makeText(this, "Semua field harus diisi", Toast.LENGTH_SHORT).show()
         } else {
             binding.progressBar4.visibility = View.VISIBLE
             val HpsId = dbRef.push().key!!
-            val hps = HpsModel(HpsId,kodeRup,jenisBarangJasa,satuan,harga,pajak,total,keterangan,nilaiPagu,dokumenPersiapan)
+            val hps = HpsModel(HpsId,kodeRup,jenisBarangJasa,satuan,harga,pajak,total,keterangan,nilaiPagu)
 
             dbRef.child(HpsId).setValue(hps)
                 .addOnCompleteListener {

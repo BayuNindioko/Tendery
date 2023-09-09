@@ -1,25 +1,29 @@
 package com.example.tendery.ui.data_tender.detailTender
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.appcompat.app.AppCompatActivity
 import com.example.tendery.R
-import com.example.tendery.databinding.ActivityDetailPaketBinding
 import com.example.tendery.databinding.ActivityDetailTenderBinding
-import com.example.tendery.databinding.ActivityEditAkunBinding
 import com.example.tendery.ui.data_tender.editDataTender.EditDataTenderActivity
-import com.example.tendery.ui.paket.editPaket.EditPaketActivity
+import com.example.tendery.ui.hps.detailHPS.Rincian_hpsActivity
+import com.example.tendery.ui.paket.detail.DetailPaketActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 
 class DetailTenderActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailTenderBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var fStore: FirebaseFirestore
+
+    companion object {
+        const val EDIT_REQUEST_CODE = 1
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.apply {
@@ -52,12 +56,80 @@ class DetailTenderActivity : AppCompatActivity() {
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Coba Lagi", Toast.LENGTH_SHORT,).show()
+                Toast.makeText(this, "Coba Lagi", Toast.LENGTH_SHORT).show()
             }
+
+
+        val id = intent.getStringExtra("DataId")
+        val nama = intent.getStringExtra("nama")
+        val kodeTender = intent.getStringExtra("kodeTender")
+        val jenisKualifikasi = intent.getStringExtra("jenisKualifikasi")
+        val keterangan = intent.getStringExtra("keterangan")
+        val mulai = intent.getStringExtra("mulai")
+        val selesai = intent.getStringExtra("selesai")
+
+        getDetail(nama,kodeTender,jenisKualifikasi,keterangan,mulai,selesai)
 
         binding.fabEdit.setOnClickListener {
             val intent = Intent(this, EditDataTenderActivity::class.java)
-            startActivity(intent)
+            intent.putExtra("DataId", id)
+            intent.putExtra("nama", nama)
+            intent.putExtra("kodeTender", kodeTender)
+            intent.putExtra("jenisKualifikasi", jenisKualifikasi)
+            intent.putExtra("keterangan", keterangan)
+            intent.putExtra("mulai", mulai)
+            intent.putExtra("selesai", selesai)
+            startActivityForResult(intent, EDIT_REQUEST_CODE)
+        }
+
+        binding.fabDelete.setOnClickListener {
+            binding.progressBar4.visibility = View.VISIBLE
+            val dbRef = FirebaseDatabase.getInstance().getReference("Data_Tender").child(id.toString())
+            val mTask = dbRef.removeValue()
+
+            mTask.addOnSuccessListener {
+                binding.progressBar4.visibility = View.GONE
+                Toast.makeText(this, "Data Berhasil Dihapus!", Toast.LENGTH_LONG).show()
+                finish()
+            }.addOnFailureListener{ error ->
+                Toast.makeText(this, "Deleting Err ${error.message}", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    private fun getDetail(
+        nama: String?,
+        kodeTender: String?,
+        jenisKualifikasi: String?,
+        keterangan: String?,
+        mulai: String?,
+        selesai: String?
+    ) {
+        binding.namaTender.text = nama
+        binding.textViewKodeRUP.text = getString(R.string.kode_tender_data) + " $kodeTender"
+        binding.textViewKualifikasi.text = getString(R.string.jenis_kualifikasi) + " $jenisKualifikasi"
+        binding.textViewKeterangan.text = getString(R.string.keterangan_kualifikasi) + " $keterangan"
+        binding.textViewMulai.text = getString(R.string.tanggal_mulai) + " $mulai"
+        binding.textViewSelesai.text = getString(R.string.tanggal_selesai) + " $selesai"
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == EDIT_REQUEST_CODE && resultCode == RESULT_OK) {
+
+            val updateNama = data?.getStringExtra("updateNama")
+            val updateKodeTender = data?.getStringExtra("updateKodeTender")
+            val updateJenisKualifikasi = data?.getStringExtra("updateJenisKualifikasi")
+            val updateKeterangan = data?.getStringExtra("updateKeterangan")
+            val updateMulai = data?.getStringExtra("updateMulai")
+            val updateSelesai = data?.getStringExtra("updateSelesai")
+
+            binding.namaTender.text = updateNama
+            binding.textViewKodeRUP.text = getString(R.string.kode_tender_data) + " $updateKodeTender"
+            binding.textViewKualifikasi.text = getString(R.string.jenis_kualifikasi) + " $updateJenisKualifikasi"
+            binding.textViewKeterangan.text = getString(R.string.keterangan_kualifikasi) + " $updateKeterangan"
+            binding.textViewMulai.text = getString(R.string.tanggal_mulai) + " $updateMulai"
+            binding.textViewSelesai.text = getString(R.string.tanggal_selesai) + " $updateSelesai"
         }
     }
 
