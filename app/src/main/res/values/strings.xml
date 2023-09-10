@@ -54,7 +54,6 @@
     <string name="kabupaten_kota">Kabupaten / Kota\t:</string>
     <string name="lokasi_lengkap">Alamat Lengkap \t\t:</string>
 
-
     <string name="kode_rup_label">Kode RUP\t\t\t\t\t\t\t\t:</string>
     <string name="jenis_barang_label">Jenis Barang/Jasa\t:</string>
     <string name="satuan_label">Satuan\t\t\t\t\t\t\t\t\t\t:</string>
@@ -68,6 +67,6 @@
     <string name="kode_tender_data">Kode Tender \t\t\t\t\t\t\t\t\t\t:</string>
     <string name="keterangan_kualifikasi">Keterangan Kualifikasi \t:</string>
     <string name="jenis_kualifikasi">Jenis Kualifikasi \t\t\t\t\t\t\t:</string>
-    <string name="tanggal_mulai">Tanggal Mulai \t\t\t\t\t\t\t\t\t:</string>
+    <string name="tanggal_mulai">Tanggal Mulai \t\t\t\t\t\t\t\t:</string>
     <string name="tanggal_selesai">Tanggal Selesai \t\t\t\t\t\t\t:</string>
 </resources>

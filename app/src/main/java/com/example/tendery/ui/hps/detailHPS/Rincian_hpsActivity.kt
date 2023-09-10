@@ -1,11 +1,13 @@
 package com.example.tendery.ui.hps.detailHPS
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.FileProvider
 import com.example.tendery.R
 import com.example.tendery.databinding.ActivityRincianHpsBinding
 import com.example.tendery.ui.hps.editHPS.EdithpsActivity
@@ -13,6 +15,7 @@ import com.example.tendery.ui.paket.detail.DetailPaketActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import java.io.File
 
 class Rincian_hpsActivity : AppCompatActivity() {
 
@@ -66,9 +69,10 @@ class Rincian_hpsActivity : AppCompatActivity() {
         val total = intent.getStringExtra("total")
         val keterangan = intent.getStringExtra("keterangan")
         val nilaiPagu = intent.getStringExtra("nilaiPagu")
-        val dokumenPersiapan = intent.getStringExtra("dokumenPersiapan")
+        val dokumen = intent.getStringExtra("dokumenPersiapan")
 
-        getDetail(kodeRup,jenisBarangJasa,satuan,harga,pajak,total,keterangan,nilaiPagu,dokumenPersiapan)
+
+        getDetail(kodeRup,jenisBarangJasa,satuan,harga,pajak,total,keterangan,nilaiPagu)
 
         binding.fabEdit.setOnClickListener {
             val intent = Intent(this, EdithpsActivity::class.java)
@@ -81,7 +85,7 @@ class Rincian_hpsActivity : AppCompatActivity() {
             intent.putExtra("total", total)
             intent.putExtra("keterangan", keterangan)
             intent.putExtra("nilaiPagu", nilaiPagu)
-            intent.putExtra("dokumenPersiapan", dokumenPersiapan)
+            intent.putExtra("dokumenPersiapan", dokumen)
 
             startActivityForResult(intent, EDIT_REQUEST_CODE)
         }
@@ -99,6 +103,16 @@ class Rincian_hpsActivity : AppCompatActivity() {
                 Toast.makeText(this, "Deleting Err ${error.message}", Toast.LENGTH_LONG).show()
             }
         }
+        binding.download.setOnClickListener {
+            val dokumenLink = dokumen
+
+            if (dokumenLink != null && dokumenLink.isNotEmpty()) {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(dokumenLink))
+                startActivity(browserIntent)
+            } else {
+                Toast.makeText(this, "Tidak ada tautan dokumen yang tersedia", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun getDetail(
@@ -110,7 +124,6 @@ class Rincian_hpsActivity : AppCompatActivity() {
         total: String?,
         keterangan: String?,
         nilaiPagu: String?,
-        dokumenPersiapan: String?
     ) {
         binding.textViewKodeRUP.text = getString(R.string.kode_rup_label) + " " + kodeRup
         binding.textViewJenisBarang.text = getString(R.string.jenis_barang_label) + " " + jenisBarangJasa

@@ -206,27 +206,28 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/DokumenEditTextLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Upload Dokumen Persiapan"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nilaiPaguEditTextLayout">
+            app:layout_constraintTop_toBottomOf="@+id/nilaiPaguEditTextLayout" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/DokumenEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Dokumen Persiapan"
-                android:inputType="text"
-                tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:backgroundTint="@color/green"
+            android:text="Upload File"
+            android:textSize="10sp"
+            android:drawableStart="@drawable/baseline_upload_24"
+            app:cornerRadius="26dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <Button
             android:id="@+id/button"
@@ -239,7 +240,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DokumenEditTextLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/button4" />
         <ProgressBar
             android:id="@+id/progressBar4"
             style="?android:attr/progressBarStyle"

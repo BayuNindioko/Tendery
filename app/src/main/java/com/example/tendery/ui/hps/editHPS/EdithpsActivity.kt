@@ -1,6 +1,8 @@
 package com.example.tendery.ui.hps.editHPS
 
+import android.app.ProgressDialog
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -12,10 +14,14 @@ import com.example.tendery.ui.penawaran.rv.PenawaranModel
 
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 class EdithpsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEdithpsBinding
     private lateinit var dbRef: DatabaseReference
+    private lateinit var storageRef: StorageReference
+    var dokumenPersiapan = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.apply {
@@ -24,6 +30,7 @@ class EdithpsActivity : AppCompatActivity() {
         }
         binding = ActivityEdithpsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        storageRef = FirebaseStorage.getInstance().reference
 
         val id = intent.getStringExtra("HpsId")
         val kodeRup = intent.getStringExtra("kodeRup")
@@ -34,7 +41,7 @@ class EdithpsActivity : AppCompatActivity() {
         val total = intent.getStringExtra("total")
         val keterangan = intent.getStringExtra("keterangan")
         val nilaiPagu = intent.getStringExtra("nilaiPagu")
-        val dokumenPersiapan = intent.getStringExtra("dokumenPersiapan")
+        dokumenPersiapan = intent.getStringExtra("dokumenPersiapan") ?: ""
 
         binding.namaEditText.setText(kodeRup)
         binding.jenisBarangEditText.setText(jenisBarangJasa)
@@ -44,14 +51,57 @@ class EdithpsActivity : AppCompatActivity() {
         binding.totalEditText.setText(total)
         binding.keteranganEditText.setText(keterangan)
         binding.nilaiPaguEditText.setText(nilaiPagu)
-        binding.DokumenEditText.setText(dokumenPersiapan)
+
 
         binding.button.setOnClickListener {
             updateData(id)
         }
 
+        binding.button4.setOnClickListener {
+            selectFile()
+        }
+
     }
 
+    private fun selectFile() {
+        val intent = Intent()
+        intent.type = "application/pdf"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select PDF Files..."), 1)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.data != null) {
+            uploadFiles(data.data!!)
+        }
+    }
+
+    private fun uploadFiles(data: Uri) {
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Uploading...")
+        progressDialog.show()
+
+        val reference = storageRef.child("Uploads/${System.currentTimeMillis()}.pdf")
+
+        reference.putFile(data)
+            .addOnSuccessListener { taskSnapshot ->
+                val uriTask = taskSnapshot.storage.downloadUrl
+
+                uriTask.addOnSuccessListener { uri ->
+                    progressDialog.dismiss()
+                    Toast.makeText(this, "File Uploaded Successfully", Toast.LENGTH_SHORT).show()
+                    val url = uriTask.result
+                    dokumenPersiapan = url.toString()
+                }
+            }
+            .addOnProgressListener { snapshot ->
+                val progress = (100.0 * snapshot.bytesTransferred) / snapshot.totalByteCount
+                progressDialog.setMessage("Uploaded: ${progress.toInt()}%")
+            }
+
+    }
 
     private fun updateData(id: String?) {
         val kodeRup = binding.namaEditText.text.toString()
@@ -62,10 +112,10 @@ class EdithpsActivity : AppCompatActivity() {
         val total = binding.totalEditText.text.toString()
         val keterangan = binding.keteranganEditText.text.toString()
         val nilaiPagu = binding.nilaiPaguEditText.text.toString()
-        val dokumenPersiapan = binding.DokumenEditText.text.toString()
+        val dokumenPersiapanUpdate = dokumenPersiapan
 
         val dbRef = FirebaseDatabase.getInstance().getReference("HPS").child(id.toString())
-        val empInfo = HpsModel(id, kodeRup,jenisBarangJasa,satuan,harga,pajak,total,keterangan,nilaiPagu,dokumenPersiapan)
+        val empInfo = HpsModel(id, kodeRup,jenisBarangJasa,satuan,harga,pajak,total,keterangan,nilaiPagu,dokumenPersiapanUpdate)
         dbRef.setValue(empInfo)
         Toast.makeText(applicationContext, "Data Berhasil Diperbarui!", Toast.LENGTH_LONG).show()
 
