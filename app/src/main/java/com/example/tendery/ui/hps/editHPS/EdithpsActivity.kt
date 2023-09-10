@@ -26,7 +26,7 @@ class EdithpsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
-            title ="Edit User"
+            title ="Edit HPS"
         }
         binding = ActivityEdithpsBinding.inflate(layoutInflater)
         setContentView(binding.root)

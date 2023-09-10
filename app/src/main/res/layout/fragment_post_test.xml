@@ -14,24 +14,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Post Test"
+        android:text="Hasil Test"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Textview "User: Bayu Nindioko" -->
-    <TextView
-        android:id="@+id/textUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="User: Bayu Nindioko"
-        android:textSize="16sp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPostTest" />
 
     <!-- Textview "Nilai Pre Test" -->
     <TextView
@@ -43,16 +31,16 @@
         android:text="Nilai Pre Test"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textUser" />
+        app:layout_constraintTop_toBottomOf="@+id/textPostTest" />
 
     <!-- Textview "50" dengan warna merah dan ukuran 30sp -->
     <TextView
-        android:id="@+id/text50"
+        android:id="@+id/hasilPreTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="50"
+        android:text="-"
         android:textColor="#FF0000"
         android:textStyle="bold"
         android:textSize="35sp"
@@ -66,20 +54,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Nilai Post Test"
 
+        android:text="Nilai Post Test"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text50" />
+        app:layout_constraintTop_toBottomOf="@+id/hasilPreTest" />
 
     <!-- Textview "90" dengan warna hijau dan ukuran 30sp -->
     <TextView
-        android:id="@+id/text90"
+        android:id="@+id/hasilPostTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="90"
+        android:text="-"
         android:textColor="@color/green"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -88,10 +76,11 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="40dp"
         android:text="Mulai Test"
+        app:cornerRadius="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

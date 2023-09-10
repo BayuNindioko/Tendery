@@ -57,7 +57,8 @@ class RegisterActivity : AppCompatActivity() {
         val email = binding.emailEditText.text.toString()
         val password = binding.passwordEditText.text.toString()
         val role =selectedRole
-
+        val PreTest = 0
+        val PostTest = 0
         if (checkForm()) {
             binding.progressBar.visibility = View.VISIBLE
             auth.createUserWithEmailAndPassword(email, password)
@@ -67,6 +68,8 @@ class RegisterActivity : AppCompatActivity() {
                         val userInfo = hashMapOf(
                             "FullName" to name,
                             "UserEmail" to email,
+                            "PreTest" to PreTest,
+                            "PostTest" to PostTest
                         )
                         when (role) {
                             "PPK" -> {
