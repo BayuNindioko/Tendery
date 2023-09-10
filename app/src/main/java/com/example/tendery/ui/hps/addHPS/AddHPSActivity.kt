@@ -62,7 +62,7 @@ class AddHPSActivity : AppCompatActivity() {
         progressDialog.setTitle("Uploading...")
         progressDialog.show()
 
-        val reference = storageRef.child("Uploads/${System.currentTimeMillis()}.pdf")
+        val reference = storageRef.child("HPS/${System.currentTimeMillis()}.pdf")
 
         reference.putFile(data)
             .addOnSuccessListener { taskSnapshot ->

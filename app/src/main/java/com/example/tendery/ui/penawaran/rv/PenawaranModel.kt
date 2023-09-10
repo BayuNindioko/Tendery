@@ -7,4 +7,5 @@ data class PenawaranModel (
     val dokumenPenawaran: String? = null,
     val status: String? = null,
 
+
 )

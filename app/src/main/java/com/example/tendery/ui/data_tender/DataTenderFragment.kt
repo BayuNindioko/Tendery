@@ -104,7 +104,7 @@ class DataTenderFragment : Fragment() {
                 intent.putExtra("keterangan", dataModel.keternagan)
                 intent.putExtra("mulai", dataModel.mulai)
                 intent.putExtra("selesai", dataModel.selesai)
-
+                intent.putExtra("dokumenTender", dataModel.dokumenTender)
 
                 startActivity(intent)
             }

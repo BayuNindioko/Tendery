@@ -8,4 +8,5 @@ data class DataModel(
     val keternagan : String? = null,
     val mulai: String? = null,
     val selesai: String? = null,
+    val dokumenTender :String?= null
 )

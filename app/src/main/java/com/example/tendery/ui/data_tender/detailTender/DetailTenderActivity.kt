@@ -1,7 +1,9 @@
 package com.example.tendery.ui.data_tender.detailTender
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -67,6 +69,7 @@ class DetailTenderActivity : AppCompatActivity() {
         val keterangan = intent.getStringExtra("keterangan")
         val mulai = intent.getStringExtra("mulai")
         val selesai = intent.getStringExtra("selesai")
+        val dokumen = intent.getStringExtra("dokumenTender")
 
         getDetail(nama,kodeTender,jenisKualifikasi,keterangan,mulai,selesai)
 
@@ -79,6 +82,7 @@ class DetailTenderActivity : AppCompatActivity() {
             intent.putExtra("keterangan", keterangan)
             intent.putExtra("mulai", mulai)
             intent.putExtra("selesai", selesai)
+            intent.putExtra("dokumenTender", dokumen)
             startActivityForResult(intent, EDIT_REQUEST_CODE)
         }
 
@@ -93,6 +97,18 @@ class DetailTenderActivity : AppCompatActivity() {
                 finish()
             }.addOnFailureListener{ error ->
                 Toast.makeText(this, "Deleting Err ${error.message}", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        binding.download.setOnClickListener {
+            val dokumenLink = dokumen
+            Log.d("dokuemnTender", dokumenLink.toString())
+
+            if (dokumenLink != null && dokumenLink.isNotEmpty()) {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(dokumenLink))
+                startActivity(browserIntent)
+            } else {
+                Toast.makeText(this, "Tidak ada tautan dokumen yang tersedia", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -123,6 +139,7 @@ class DetailTenderActivity : AppCompatActivity() {
             val updateKeterangan = data?.getStringExtra("updateKeterangan")
             val updateMulai = data?.getStringExtra("updateMulai")
             val updateSelesai = data?.getStringExtra("updateSelesai")
+            val updatedDokumen = data?.getStringExtra("updatedDokumenTender")
 
             binding.namaTender.text = updateNama
             binding.textViewKodeRUP.text = getString(R.string.kode_tender_data) + " $updateKodeTender"

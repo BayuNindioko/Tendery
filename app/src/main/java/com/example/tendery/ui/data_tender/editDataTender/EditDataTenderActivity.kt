@@ -1,6 +1,8 @@
 package com.example.tendery.ui.data_tender.editDataTender
 
+import android.app.ProgressDialog
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -10,9 +12,13 @@ import com.example.tendery.databinding.ActivityEditAkunBinding
 import com.example.tendery.databinding.ActivityEditDataTenderBinding
 import com.example.tendery.ui.data_tender.rv.DataModel
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 class EditDataTenderActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditDataTenderBinding
+    private lateinit var storageRef: StorageReference
+    var dokumenTender = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.apply {
@@ -21,6 +27,7 @@ class EditDataTenderActivity : AppCompatActivity() {
         }
         binding = ActivityEditDataTenderBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        storageRef = FirebaseStorage.getInstance().reference
 
         val id = intent.getStringExtra("DataId")
         val nama = intent.getStringExtra("nama")
@@ -29,6 +36,7 @@ class EditDataTenderActivity : AppCompatActivity() {
         val keterangan = intent.getStringExtra("keterangan")
         val mulai = intent.getStringExtra("mulai")
         val selesai = intent.getStringExtra("selesai")
+        dokumenTender = intent.getStringExtra("dokumenTender") ?: ""
 
         binding.namaEditText.setText(nama)
         binding.kodeEditText.setText(kodeTender)
@@ -40,6 +48,50 @@ class EditDataTenderActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             updateData(id)
         }
+
+        binding.button4.setOnClickListener {
+            selectFile()
+        }
+    }
+
+    private fun selectFile() {
+        val intent = Intent()
+        intent.type = "application/pdf"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select PDF Files..."), 1)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.data != null) {
+            uploadFiles(data.data!!)
+        }
+    }
+
+    private fun uploadFiles(data: Uri) {
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Uploading...")
+        progressDialog.show()
+
+        val reference = storageRef.child("Data Tender/${System.currentTimeMillis()}.pdf")
+
+        reference.putFile(data)
+            .addOnSuccessListener { taskSnapshot ->
+                val uriTask = taskSnapshot.storage.downloadUrl
+
+                uriTask.addOnSuccessListener { uri ->
+                    progressDialog.dismiss()
+                    Toast.makeText(this, "File Uploaded Successfully", Toast.LENGTH_SHORT).show()
+                    val url = uriTask.result
+                    dokumenTender = url.toString()
+                }
+            }
+            .addOnProgressListener { snapshot ->
+                val progress = (100.0 * snapshot.bytesTransferred) / snapshot.totalByteCount
+                progressDialog.setMessage("Uploaded: ${progress.toInt()}%")
+            }
+
     }
 
     private fun updateData(id: String?) {
@@ -49,9 +101,10 @@ class EditDataTenderActivity : AppCompatActivity() {
         val keteranganKualifikasi = binding.keteranganKualifikasiEditText.text.toString()
         val tanggalMulai = binding.tanggalMulaiEditText.text.toString()
         val tanggalSelesai = binding.tanggalSelesaiEditText.text.toString()
+        val dokumenTenderUpdate = dokumenTender.toString()
 
         val dbRef = FirebaseDatabase.getInstance().getReference("Data_Tender").child(id.toString())
-        val dataInfo = DataModel(id, nama,kode,jenisKualifikasi,keteranganKualifikasi,tanggalMulai,tanggalSelesai)
+        val dataInfo = DataModel(id, nama,kode,jenisKualifikasi,keteranganKualifikasi,tanggalMulai,tanggalSelesai,dokumenTenderUpdate)
         dbRef.setValue(dataInfo)
         Toast.makeText(applicationContext, "Data Berhasil Diperbarui!", Toast.LENGTH_LONG).show()
 
@@ -62,6 +115,7 @@ class EditDataTenderActivity : AppCompatActivity() {
         updatedIntent.putExtra("updateKeterangan", keteranganKualifikasi)
         updatedIntent.putExtra("updateMulai", tanggalMulai)
         updatedIntent.putExtra("updateSelesai", tanggalSelesai)
+        updatedIntent.putExtra("updatedDokumenTender", dokumenTenderUpdate)
 
         setResult(RESULT_OK, updatedIntent)
         finish()

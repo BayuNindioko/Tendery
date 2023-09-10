@@ -1,7 +1,10 @@
 package com.example.tendery.ui.penawaran.detailPenawaran
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -56,7 +59,7 @@ class DetailPenawaranActivity : AppCompatActivity() {
         val hargaPenawaran = intent.getStringExtra("hargaPenawaran")
         val dokumenPenawaran = intent.getStringExtra("dokumenPenawaran")
 
-        getDetail(kodePenawaran,hargaPenawaran,dokumenPenawaran)
+        getDetail(kodePenawaran,hargaPenawaran)
 
         binding.fabDelete.setOnClickListener {
             binding.progressBar4.visibility = View.VISIBLE
@@ -88,16 +91,26 @@ class DetailPenawaranActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Error: ${error.message}", Toast.LENGTH_LONG).show()
                 }
         }
+
+        binding.button4.setOnClickListener {
+            val dokumenLink = dokumenPenawaran
+            Log.d("dokuemnPenawaran", dokumenLink.toString())
+
+            if (dokumenLink != null && dokumenLink.isNotEmpty()) {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(dokumenLink))
+                startActivity(browserIntent)
+            } else {
+                Toast.makeText(this, "Tidak ada tautan dokumen yang tersedia", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun getDetail(
         kodePenawaran: String?,
         hargaPenawaran: String?,
-        dokumenPenawaran: String?
     ) {
         binding.textViewKodeTender.text = "Kode Tender           :" + " " + kodePenawaran
         binding.textViewHarga.text      = "Harga Penawaran :" + " " + hargaPenawaran
-        binding.textViewDokumen.text = "Dokumen " + " " + dokumenPenawaran
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

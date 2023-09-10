@@ -25,6 +25,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="Kode RUP : "
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewRincianhps" />
 
@@ -33,31 +34,34 @@
         android:id="@+id/textViewJenisBarang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jenis Barang/Jasa : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewKodeRUP"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="Jenis Barang/Jasa : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKodeRUP" />
 
     <TextView
         android:id="@+id/textViewSatuan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Satuan : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewJenisBarang"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="Satuan : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewJenisBarang" />
 
     <TextView
         android:id="@+id/textViewHargaPajak"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Harga : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewSatuan"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="Harga : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSatuan" />
 
     <TextView
         android:id="@+id/textViewPajak"
@@ -66,6 +70,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Pajak : "
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewHargaPajak" />
 
@@ -73,31 +78,34 @@
         android:id="@+id/textViewTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Total : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewPajak"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="Total : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPajak" />
 
     <TextView
         android:id="@+id/textViewKeterangan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Keterangan : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewTotal"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="Keterangan : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTotal" />
 
     <TextView
         android:id="@+id/textViewNilaiPagu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nilai Pagu : "
-        app:layout_constraintTop_toBottomOf="@+id/textViewKeterangan"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="Nilai Pagu : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKeterangan" />
 
     <!-- End of added TextViews -->
     <TextView
@@ -105,8 +113,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Download Dokumen Persiapan"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNilaiPagu" />
 
@@ -114,7 +123,10 @@
         android:id="@+id/download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Download"
+        android:text="Download File"
+        app:cornerRadius="26dp"
+        android:textSize="10sp"
+        android:backgroundTint="@color/green"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
