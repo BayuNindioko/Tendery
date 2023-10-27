@@ -15,6 +15,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tendery.databinding.ActivityMainBinding
+import com.example.tendery.ui.admin.addUser.AddUserActivity
+import com.example.tendery.ui.admin.mainAdmin.AdminMainActivity
 
 import com.example.tendery.ui.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -47,6 +49,22 @@ class MainActivity : AppCompatActivity() {
             startActivity(loginIntent)
             finish()
             return
+        }else {
+            val uid = currentUser?.uid
+            if (uid != null) {
+                fStore.collection("Users").document(uid)
+                    .get()
+                    .addOnSuccessListener { documentSnapshot ->
+                        if (documentSnapshot.contains("Role")) {
+                            val role = documentSnapshot.getString("Role")
+                            if (role == "Admin") {
+                                val adminIntent = Intent(this, AdminMainActivity::class.java)
+                                startActivity(adminIntent)
+                                finish()
+                            }
+                        }
+                    }
+            }
         }
 
         val userDocRef = fStore.collection("Users").document(currentUser?.uid.toString())

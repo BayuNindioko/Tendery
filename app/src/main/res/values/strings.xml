@@ -69,4 +69,8 @@
     <string name="jenis_kualifikasi">Jenis Kualifikasi \t\t\t\t\t\t\t:</string>
     <string name="tanggal_mulai">Tanggal Mulai \t\t\t\t\t\t\t\t:</string>
     <string name="tanggal_selesai">Tanggal Selesai \t\t\t\t\t\t\t:</string>
+    <string name="title_activity_admin_main">AdminMainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

@@ -15,6 +15,10 @@
         android:theme="@style/Theme.Tendery"
         tools:targetApi="31">
         <activity
+            android:name=".ui.admin.mainAdmin.AdminMainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_admin_main" />
+        <activity
             android:name=".ui.preTest.NilaiPreTestActivity"
             android:exported="false" />
         <activity
@@ -78,13 +82,7 @@
             android:name=".ui.paket.detail.DetailPaketActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.admin.editUser.EditAkunActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.admin.addUser.AddUserActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.admin.ListUserActivity"
             android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"
