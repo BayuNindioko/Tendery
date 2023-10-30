@@ -1,436 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.postTest.PostTestActivity">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:textSize="16sp"
+        android:text="Soal 1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/soal1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="1. Apa warna langit?"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btnPrevious"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Sebelumnya"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/guideline" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
-        <RadioGroup
-            android:id="@+id/soal1RadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/soal1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/jawaban1a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A. Biru" />
-
-            <RadioButton
-                android:id="@+id/jawaban1b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B. Hijau" />
-
-            <RadioButton
-                android:id="@+id/jawaban1c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C. Merah" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/soal2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="2. Apa ibu kota Indonesia?"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/soal1RadioGroup" />
-
-        <!-- Pilihan Jawaban untuk Soal 2 -->
-        <RadioGroup
-            android:id="@+id/soal2RadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/soal2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/jawaban2a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A. Jakarta" />
-
-            <RadioButton
-                android:id="@+id/jawaban2b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B. Surabaya" />
-
-            <RadioButton
-                android:id="@+id/jawaban2c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C. Bandung" />
-        </RadioGroup>
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btnNext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Selanjutnya"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/guideline"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
-        <!-- Soal 3 -->
-        <TextView
-            android:id="@+id/soal3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="3. Pertanyaan 3?"
-            app:layout_constraintTop_toBottomOf="@+id/soal2RadioGroup"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/optionList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPrevious"
+        app:layout_constraintEnd_toEndOf="@+id/description"
+        app:layout_constraintStart_toStartOf="@+id/description"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
 
-        <RadioGroup
-            android:id="@+id/soal3RadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/soal3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btnSubmit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/guideline"
+        app:layout_constraintRight_toRightOf="parent"  />
 
-            <RadioButton
-                android:id="@+id/jawaban3a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A. Jawaban A" />
-
-            <RadioButton
-                android:id="@+id/jawaban3b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B. Jawaban B" />
-
-            <RadioButton
-                android:id="@+id/jawaban3c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C. Jawaban C" />
-        </RadioGroup>
+    <ProgressBar
+        android:id="@+id/progressBar7"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
 
 
-        <TextView
-            android:id="@+id/soal4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="4. Pertanyaan 4?"
-            app:layout_constraintTop_toBottomOf="@+id/soal3RadioGroup"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
-
-        <RadioGroup
-            android:id="@+id/soal4RadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/soal4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/jawaban4a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A. Jawaban A" />
-
-            <RadioButton
-                android:id="@+id/jawaban4b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B. Jawaban B" />
-
-            <RadioButton
-                android:id="@+id/jawaban4c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C. Jawaban C" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/soal5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="5. Pertanyaan 5?"
-            app:layout_constraintTop_toBottomOf="@+id/soal4RadioGroup"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
-
-        <RadioGroup
-            android:id="@+id/soal5RadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/soal5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/jawaban5a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A. Jawaban A" />
-
-            <RadioButton
-                android:id="@+id/jawaban5b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B. Jawaban B" />
-
-            <RadioButton
-                android:id="@+id/jawaban5c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C. Jawaban C" />
-        </RadioGroup>
-
-
-        <TextView
-            android:id="@+id/soal6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="6. Pertanyaan 6?"
-            app:layout_constraintTop_toBottomOf="@+id/soal5RadioGroup"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
-
-        <RadioGroup
-            android:id="@+id/soal6RadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/soal6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/jawaban6a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A. Jawaban A" />
-
-            <RadioButton
-                android:id="@+id/jawaban6b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B. Jawaban B" />
-
-            <RadioButton
-                android:id="@+id/jawaban6c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C. Jawaban C" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/soal7"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="7. Pertanyaan 7?"
-            app:layout_constraintTop_toBottomOf="@+id/soal6RadioGroup"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
-
-        <RadioGroup
-            android:id="@+id/soal7RadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/soal7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/jawaban7a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A. Jawaban A" />
-
-            <RadioButton
-                android:id="@+id/jawaban7b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B. Jawaban B" />
-
-            <RadioButton
-                android:id="@+id/jawaban7c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C. Jawaban C" />
-        </RadioGroup>
-
-
-        <TextView
-            android:id="@+id/soal88"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="8. Pertanyaan 8?"
-            app:layout_constraintTop_toBottomOf="@+id/soal7RadioGroup"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
-
-        <RadioGroup
-            android:id="@+id/soal8RadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/soal88"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/jawaban8a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A. Jawaban A" />
-
-            <RadioButton
-                android:id="@+id/jawaban8b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B. Jawaban B" />
-
-            <RadioButton
-                android:id="@+id/jawaban8c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C. Jawaban C" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/soal9"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="9. Pertanyaan 9?"
-            app:layout_constraintTop_toBottomOf="@+id/soal8RadioGroup"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
-
-        <RadioGroup
-            android:id="@+id/soal9RadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/soal9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/jawaban9a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A. Jawaban A" />
-
-            <RadioButton
-                android:id="@+id/jawaban9b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B. Jawaban B" />
-
-            <RadioButton
-                android:id="@+id/jawaban9c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C. Jawaban C" />
-        </RadioGroup>
-
-
-        <TextView
-            android:id="@+id/soal10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="10. Pertanyaan 10?"
-            app:layout_constraintTop_toBottomOf="@+id/soal9RadioGroup"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
-
-        <RadioGroup
-            android:id="@+id/soal10RadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/soal10">
-
-            <RadioButton
-                android:id="@+id/jawaban10a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A. Jawaban A" />
-
-            <RadioButton
-                android:id="@+id/jawaban10b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B. Jawaban B" />
-
-            <RadioButton
-                android:id="@+id/jawaban10c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C. Jawaban C" />
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="200dp"
-            android:layout_height="52dp"
-            app:cornerRadius="26dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="Submit"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/soal10RadioGroup" />
-        <ProgressBar
-            android:id="@+id/progressBar7"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/soal10RadioGroup"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:visibility="gone"/>
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:text="Kerjakan PreTest Sebelum mengakses Aplikasi!"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

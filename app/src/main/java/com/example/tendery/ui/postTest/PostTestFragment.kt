@@ -13,6 +13,7 @@ import com.example.tendery.databinding.FragmentPertanyaanBinding
 import com.example.tendery.databinding.FragmentPostTestBinding
 import com.example.tendery.ui.pertanyaan.addPertanyaan.AddPertanyaanActivity
 import com.example.tendery.ui.pertanyaan.detailPertanyaan.DetailPertanyaanActivity
+import com.example.tendery.ui.preTest.rv_test.TestActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -34,7 +35,7 @@ class PostTestFragment : Fragment() {
 
         getData()
         binding.button.setOnClickListener {
-            val intent = Intent(requireContext(), PostTestActivity::class.java)
+            val intent = Intent(requireContext(), TestActivity::class.java)
             startActivity(intent)
         }
 

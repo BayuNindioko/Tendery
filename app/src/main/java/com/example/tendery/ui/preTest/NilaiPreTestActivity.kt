@@ -14,7 +14,7 @@ class NilaiPreTestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
-            title = "Nilai Pre Test"
+            title = "Hasil Test"
         }
         binding = ActivityNilaiPreTestBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -13,6 +13,7 @@ import com.example.tendery.databinding.ActivityLoginBinding
 import com.example.tendery.ui.admin.addUser.AddUserActivity
 import com.example.tendery.ui.admin.mainAdmin.AdminMainActivity
 import com.example.tendery.ui.preTest.PreTestActivity
+import com.example.tendery.ui.preTest.rv_test.TestActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -72,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
                                             val preTestValue = documentSnapshot.getLong("PreTest")
                                             if (preTestValue != null) {
                                                 if (preTestValue == 0L) {
-                                                    val intent = Intent(this, PreTestActivity::class.java)
+                                                    val intent = Intent(this, TestActivity::class.java)
                                                     startActivity(intent)
                                                     finish()
                                                 } else {
