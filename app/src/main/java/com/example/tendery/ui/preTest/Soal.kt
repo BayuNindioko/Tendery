@@ -6,5 +6,5 @@ data class Soal (
     var B: String = "",
     var C: String = "",
     var jawaban: String = "",
-    var userAnswer: String = ""
+    var userAnswer: String = "",
 )
