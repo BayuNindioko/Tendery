@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Tendery"
         tools:targetApi="31">
         <activity
+            android:name=".ui.pertanyaan.jawaban.JawabanActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.admin.mainAdmin.ui.pertanyaan.EditSoalActivity"
             android:exported="false" />
         <activity

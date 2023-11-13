@@ -7,7 +7,7 @@
     tools:context=".ui.paket.detail.DetailPaketActivity">
 
     <TextView
-        android:id="@+id/textViewKodeTender"
+        android:id="@+id/textViewRincian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -20,7 +20,7 @@
 
 
     <TextView
-        android:id="@+id/textViewPertanyaan"
+        android:id="@+id/textViewKodeTender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -29,7 +29,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewKodeTender" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRincian" />
 
     <TextView
         android:id="@+id/textViewPenanya"
@@ -37,10 +37,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Penanya: Bayu"
+        android:text="Kode Pertanyaan: Bayu"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPertanyaan" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewKodeTender" />
+
+    <TextView
+        android:id="@+id/displayPertanyaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Pertanyaan"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPenanya" />
 
     <TextView
         android:id="@+id/textViewDetailPertanyaan"
@@ -53,63 +65,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPenanya" />
+        app:layout_constraintTop_toBottomOf="@+id/displayPertanyaan" />
 
-    <TextView
-        android:id="@+id/textViewJawaban"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Jawaban"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDetailPertanyaan" />
-
-    <TextView
-        android:id="@+id/textViewDetailJawaban"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:text="Apa ini apa itu Apa ini apa ituApa ini apa ituApa ini apa ituApa ini apa itu Apa ini apa ituApa ini apa itu"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewJawaban" />
-
-    <Button
-        android:id="@+id/editJawaban"
-        android:layout_width="200dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="5dp"
-        android:text="Edit Jawaban"
-        app:cornerRadius="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="200dp"
-        android:layout_height="52dp"
-        android:text="Jawab"
-        app:cornerRadius="26dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="647dp" />
-
-    <ProgressBar
-        android:id="@+id/progressBar4"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

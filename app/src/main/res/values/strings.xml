@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tendery</string>
+    <string name="app_name">CSE</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -56,12 +56,12 @@
 
     <string name="kode_rup_label">Kode RUP\t\t\t\t\t\t\t\t:</string>
     <string name="jenis_barang_label">Jenis Barang/Jasa\t:</string>
-    <string name="satuan_label">Satuan\t\t\t\t\t\t\t\t\t\t\t:</string>
-    <string name="harga_label">Harga\t\t\t\t\t\t\t\t\t\t\t\t:</string>
+    <string name="satuan_label">Satuan\t\t\t\t\t\t\t\t\t\t:</string>
+    <string name="harga_label">Harga\t\t\t\t\t\t\t\t\t\t\t:</string>
     <string name="pajak_label">Pajak\t\t\t\t\t\t\t\t\t\t\t\t:</string>
-    <string name="total_label">Total\t\t\t\t\t\t\t\t\t\t\t\t\t:</string>
+    <string name="total_label">Total\t\t\t\t\t\t\t\t\t\t\t\t:</string>
     <string name="keterangan_label">Keterangan\t\t\t\t\t\t:</string>
-    <string name="nilai_pagu_label">Nilai Pagu\t\t\t\t\t\t\t\t:</string>
+    <string name="nilai_pagu_label">Nilai Pagu\t\t\t\t\t\t\t:</string>
     <string name="kode_tender">Kode Tender :</string>
 
     <string name="kode_tender_data">Kode Tender \t\t\t\t\t\t\t\t\t\t:</string>

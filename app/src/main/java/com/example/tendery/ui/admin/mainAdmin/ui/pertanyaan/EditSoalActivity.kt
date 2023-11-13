@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.tendery.databinding.ActivityEditSoalBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -26,7 +25,6 @@ class EditSoalActivity : AppCompatActivity() {
         val pilihanB = intent.getStringExtra("pilihanB")
         val pilihanC = intent.getStringExtra("pilihanC")
         val jawaban = intent.getStringExtra("jawaban")
-
 
         binding.soalEditText.setText(soal)
         binding.AEditText.setText(pilihanA)

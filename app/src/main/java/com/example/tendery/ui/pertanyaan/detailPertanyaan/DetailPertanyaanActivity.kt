@@ -31,33 +31,33 @@ class DetailPertanyaanActivity : AppCompatActivity() {
         fStore = FirebaseFirestore.getInstance()
         val currentUser = auth.currentUser
 
-        val userDocRef = fStore.collection("Users").document(currentUser?.uid.toString())
+//        val userDocRef = fStore.collection("Users").document(currentUser?.uid.toString())
+//
+//        userDocRef.get()
+//            .addOnSuccessListener { document ->
+//                if (document != null) {
+//                    val role = document.getString("Role")
+//                    if (role == "Penyedia" || role == "PPK") {
+//
+//                    }else {
+//
+//                    }
+//                } else {
+//
+//                }
+//            }
+//            .addOnFailureListener {
+//                Toast.makeText(this, "Coba Lagi", Toast.LENGTH_SHORT,).show()
 
-        userDocRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    val role = document.getString("Role")
-                    if (role == "Penyedia" || role == "PPK") {
-                        binding.button2.visibility = View.GONE
-                        binding.editJawaban.visibility = View.GONE
-                    }else {
-                        binding.button2.visibility = View.VISIBLE
-                        binding.editJawaban.visibility = View.VISIBLE
-                    }
-                } else {
-                    binding.button2.visibility = View.VISIBLE
-                    binding.editJawaban.visibility = View.VISIBLE
-                }
-            }
-            .addOnFailureListener {
-                Toast.makeText(this, "Coba Lagi", Toast.LENGTH_SHORT,).show()
-            }
 
-        binding.button2.setOnClickListener {
-            val intent = Intent(this, AddJawabanActivity::class.java)
-            startActivity(intent)
-        }
+        val id = intent.getStringExtra("pertanyaanId")
+        val kodeTender = intent.getStringExtra("kodeTender")
+        val kodePertanyaan = intent.getStringExtra("kodePertanyaan")
+        val pertanyaan = intent.getStringExtra("pertanyaan")
 
+        binding.textViewKodeTender.text = kodeTender
+        binding.textViewPenanya.text    = "Kode Pertanyaan       :" + " " + kodePertanyaan
+        binding.textViewDetailPertanyaan.text = pertanyaan
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

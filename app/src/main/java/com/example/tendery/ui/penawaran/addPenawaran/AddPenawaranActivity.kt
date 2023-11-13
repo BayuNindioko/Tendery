@@ -95,7 +95,7 @@ class AddPenawaranActivity : AppCompatActivity() {
         } else {
             binding.progressBar4.visibility = View.VISIBLE
             val PenawaranId = dbRef.push().key!!
-            val penawaran = PenawaranModel(PenawaranId,harga,kode,dokumenLink,status)
+            val penawaran = PenawaranModel(PenawaranId,kode,harga,dokumenLink,status)
 
             dbRef.child(PenawaranId).setValue(penawaran)
                 .addOnCompleteListener {

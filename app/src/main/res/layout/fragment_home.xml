@@ -14,9 +14,9 @@
         <!-- Text View - Selamat Datang di Tendery -->
         <TextView
             android:id="@+id/textViewSelamatDatang"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selamat Datang di Tendery !"
+            android:text="Selamat Datang di Computer Science Education !"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:text="Simak Cara Penggunaan Aplikasi Tendery"
+            android:text="Simak Cara Penggunaan Aplikasi ini"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewSelamatDatang" />
 
