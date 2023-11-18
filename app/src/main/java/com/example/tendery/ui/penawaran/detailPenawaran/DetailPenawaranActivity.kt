@@ -40,10 +40,10 @@ class DetailPenawaranActivity : AppCompatActivity() {
                     val role = document.getString("Role")
                     if (role == "Penyedia" ||role == "PPK") {
                         binding.pilihPenawaran.visibility = View.GONE
-                        binding.fabDelete.visibility = View.GONE
+                        binding.fabDelete.visibility = View.VISIBLE
                     }else{
                         binding.pilihPenawaran.visibility = View.VISIBLE
-                        binding.fabDelete.visibility = View.VISIBLE
+                        binding.fabDelete.visibility = View.GONE
                     }
                 } else {
                     binding.pilihPenawaran.visibility = View.VISIBLE
