@@ -6,22 +6,28 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
-import com.example.tendery.R
-import com.example.tendery.databinding.ActivityDetailPenawaranBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tendery.api.ApiConfig
+import com.example.tendery.api.ApiService
 import com.example.tendery.databinding.ActivityJawabanBinding
 import com.example.tendery.ui.pertanyaan.addPertanyaan.AddJawabanActivity
-import com.example.tendery.ui.pertanyaan.addPertanyaan.AddPertanyaanActivity
+import com.example.tendery.api.RequestBody
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class JawabanActivity : AppCompatActivity() {
+class JawabanActivity : AppCompatActivity(), JawabanAdapter.OnItemClickListener {
     private lateinit var binding: ActivityJawabanBinding
 
     private lateinit var auth: FirebaseAuth
     private lateinit var fStore: FirebaseFirestore
     private lateinit var dbRef: DatabaseReference
+
+    private lateinit var apiService: ApiService
+    private lateinit var adapter: JawabanAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +66,11 @@ class JawabanActivity : AppCompatActivity() {
             val intent = Intent(this, AddJawabanActivity::class.java)
             startActivity(intent)
         }
+
+        apiService = ApiConfig().getApiService()
+        setupRecyclerView()
+        loadDataFromApi()
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -68,5 +79,48 @@ class JawabanActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun setupRecyclerView() {
+        adapter = JawabanAdapter(this)
+        binding.rvJawaban.adapter = adapter
+        binding.rvJawaban.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onItemClick(kode: String, pertanyaan: String) {
+
+        val intent = Intent(this, DetailJawabanActivity::class.java)
+        intent.putExtra("KODE_PERTANYAAN", kode)
+        intent.putExtra("PERTANYAAN", pertanyaan)
+        startActivity(intent)
+    }
+    private fun loadDataFromApi() {
+        val request = RequestBody(
+            method = "getAllAnswer",
+            params = listOf("privatekey")
+        )
+
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                val response = apiService.getAnswer(request).execute()
+
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    responseBody?.let {
+                        runOnUiThread {
+                            adapter.setData(it.message)
+                        }
+                    }
+                } else {
+                    runOnUiThread {
+                        Toast.makeText(this@JawabanActivity, "Gagal mendapatkan data", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    Toast.makeText(this@JawabanActivity, "Terjadi kesalahan: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 }

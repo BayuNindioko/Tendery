@@ -11,5 +11,9 @@ interface ApiService {
         @Body request: RequestBody
     ): Call<CreateResponse>
 
+    @POST("/")
+    fun getAnswer(
+        @Body request: RequestBody
+    ): Call<JawabanResponse>
 
 }
