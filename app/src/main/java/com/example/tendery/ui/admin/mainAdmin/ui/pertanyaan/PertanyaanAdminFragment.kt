@@ -38,7 +38,7 @@ class PertanyaanAdminFragment : Fragment() {
                 if (document != null) {
                     val listSoal = document["list_soal"] as Map<String, Any>
 
-                    for (i in 1..3) {
+                    for (i in 1..10) {
                         val soalData = listSoal["soal$i"] as Map<String, Any>
                         val soal = soalData["soal"] as String
                         val pilihanA = soalData["A"] as String

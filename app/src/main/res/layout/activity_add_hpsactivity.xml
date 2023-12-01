@@ -109,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Harga"
-                android:inputType="text"
+                android:inputType="number"
                 tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -131,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Pajak"
-                android:inputType="text"
+                android:inputType="number"
                 tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -154,7 +154,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Total"
-                android:inputType="text"
+                android:inputType="number"
                 tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -200,7 +200,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nilai Pagu"
-                android:inputType="text"
+                android:inputType="number"
                 tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
         </com.google.android.material.textfield.TextInputLayout>

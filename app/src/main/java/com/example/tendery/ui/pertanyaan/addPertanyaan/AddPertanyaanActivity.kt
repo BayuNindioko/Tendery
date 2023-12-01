@@ -4,14 +4,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.tendery.R
 import com.example.tendery.databinding.ActivityAddPenawaranBinding
 import com.example.tendery.databinding.ActivityAddPertanyaanBinding
 import com.example.tendery.ui.penawaran.rv.PenawaranModel
 import com.example.tendery.ui.pertanyaan.rv.PertanyaanModel
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
@@ -31,6 +35,30 @@ class AddPertanyaanActivity : AppCompatActivity() {
         storageRef = FirebaseStorage.getInstance().getReference()
         dbRef = FirebaseDatabase.getInstance().getReference("Pertanyaan")
 
+
+
+
+        val tenderRef = FirebaseDatabase.getInstance().getReference("Data_Tender")
+
+        val kodeTenderList = mutableListOf<String>()
+
+        tenderRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val kodeTender = dataSnapshot.child("kodeTender").getValue(String::class.java)
+                    kodeTender?.let { kodeTenderList.add(it) }
+                }
+
+                val adapter = ArrayAdapter(this@AddPertanyaanActivity, android.R.layout.simple_spinner_item, kodeTenderList)
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                binding.kodeSpinnerText.setAdapter(adapter)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@AddPertanyaanActivity, "Failed to retrieve data: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
         binding.button.setOnClickListener {
             submitData()
         }
@@ -38,7 +66,7 @@ class AddPertanyaanActivity : AppCompatActivity() {
     }
 
     private fun submitData() {
-        val kodeTender = binding.kodeEditText.text.toString()
+        val kodeTender = binding.kodeSpinnerText.text.toString()
         val kodePertanyaan = binding.kodePertanyaanEditText.text.toString()
         val pertanyaan = binding.pertanyaanEditText.text.toString()
 

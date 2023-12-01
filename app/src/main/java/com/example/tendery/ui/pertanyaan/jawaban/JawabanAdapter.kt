@@ -15,7 +15,6 @@ class JawabanAdapter (var listener: OnItemClickListener) : RecyclerView.Adapter<
         fun onItemClick(kode: String, pertanyaan: String)
     }
 
-    // Fungsi setter untuk listener
     fun setOnItemClickListener(clickListener: OnItemClickListener) {
         listener = clickListener
     }
@@ -40,7 +39,7 @@ class JawabanAdapter (var listener: OnItemClickListener) : RecyclerView.Adapter<
         holder.itemView.setOnClickListener {
             val kode = currentItem[2]
             val pertanyaan = currentItem[3]
-            listener.onItemClick(kode, pertanyaan) // Panggil fungsi onItemClick di listener
+            listener.onItemClick(kode, pertanyaan)
         }
 
     }
