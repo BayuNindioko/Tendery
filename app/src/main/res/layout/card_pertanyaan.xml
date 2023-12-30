@@ -47,8 +47,8 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/right_arrow"
                 app:layout_constraintBottom_toBottomOf="parent"
