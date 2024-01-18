@@ -127,7 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tanggal Mulai"
-            android:inputType="date"
+            android:inputType="text"
             tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -150,7 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tanggal Selesai"
-            android:inputType="date"
+            android:inputType="text"
             tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
     </com.google.android.material.textfield.TextInputLayout>

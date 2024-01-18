@@ -127,7 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tanggal Mulai"
-            android:inputType="date"
+            android:inputType="text"
             tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -150,7 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tanggal Selesai"
-            android:inputType="date"
+            android:inputType="text"
             tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -177,6 +177,16 @@
         app:cornerRadius="26dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*ukuran file tidak boleh lebih dari 10MB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        android:layout_marginStart="32dp"
+        android:textSize="10sp"
+        android:textColor="@color/primary"/>
 
     <Button
         android:id="@+id/button"
